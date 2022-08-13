@@ -6,6 +6,35 @@
   <title>案件一覧 | 案件管理</title>
 </head>
 <body>
-
+<a href="../index.html" th:href="@{/}">トップページ</a>
+<a href="./addForm.html" th:href="@{/projects/addForm}">追加</a>
+<table class="table">
+  <thead>
+  <tr>
+    <th>状態</th>
+    <th>エージェント</th>
+    <th>会社名</th>
+    <th>タイトル</th>
+    <th>言語</th>
+    <th>更新</th>
+    <th>登録</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="project : ${projectList}">
+    <td th:text="${project.status}">(status)</td>
+    <td th:text="${project.agent}">(agent)</td>
+    <td th:text="${project.company}">(company)</td>
+    <td>
+      <a href="./detail.html" th:href="@{/projects/{projectId}(projectId=${project.id})}" th:text="${project.title}">
+        (title)
+      </a>
+    </td>
+    <td th:text="${project.programming}">(programming)</td>
+    <td th:text="${project.uptime}">(uptime)</td>
+    <td th:text="${project.register}">(register)</td>
+  </tr>
+  </tbody>
+</table>
 </body>
 </html>
