@@ -1,0 +1,11 @@
+create table projects (
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+status VARCHAR(64) NOT NULl,
+agent VARCHAR(256) NOT NULl,
+company VARCHAR(256) NOT NULl,
+title VARCHAR(512) NOT NULl,
+programming VARCHAR(64) NOT NULl,
+detail VARCHAR(4096) NOT NULl,
+uptime TIMESTAMP NOT NULl,
+register TIMESTAMP NOT NULl
+);
