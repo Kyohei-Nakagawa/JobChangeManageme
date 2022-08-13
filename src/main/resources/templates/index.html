@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::title}, ~{::body})}">
+<head>
+    <meta charset="UTF-8">
+    <title>トップページ | 案件管理</title>
+</head>
+<body>
+<h1>案件管理アプリ　トップページ</h1>
+<ul>
+    <li><a href="./about.html" th:href="@{about}">このアプリについて</a></li>
+    <li><a href="./projects/list.html" th:href="@{/projects}">案件一覧</a></li>
+    <li><a href="./users/list.html" th:href="@{/users}">ユーザー一覧</a></li>
+</ul>
+</body>
+</html>
