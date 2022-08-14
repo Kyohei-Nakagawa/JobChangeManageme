@@ -20,4 +20,8 @@ public class ProjectService {
     public ProjectEntity findById(long projectId) {
         return projectRepository.findById(projectId);
     }
+
+    public void addProject(String status, String agent, String company, String title, String programming, String detail) {
+        projectRepository.addProject(status, agent, company, title, programming, detail);
+    }
 }
