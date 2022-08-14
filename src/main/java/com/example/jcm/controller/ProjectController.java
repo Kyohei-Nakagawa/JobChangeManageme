@@ -27,7 +27,8 @@ public class ProjectController {
     }
 
     @GetMapping("/{projectId}")
-    public String showDetail(@PathVariable("projectId") long projectId) {
+    public String showDetail(@PathVariable("projectId") long projectId, Model model) {
+        model.addAttribute("project", projectService.findById(projectId));
         return "projects/detail";
     }
 }

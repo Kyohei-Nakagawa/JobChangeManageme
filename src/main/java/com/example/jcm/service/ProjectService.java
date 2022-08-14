@@ -1,7 +1,7 @@
 package com.example.jcm.service;
 
 import com.example.jcm.repository.ProjectRepository;
-import com.example.jcm.repository.model.ProjectModel;
+import com.example.jcm.repository.entity.ProjectEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,11 @@ public class ProjectService {
 
     private final ProjectRepository projectRepository;
 
-    public List<ProjectModel> findAll() {
+    public List<ProjectEntity> findAll() {
         return projectRepository.findAll();
+    }
+
+    public ProjectEntity findById(long projectId) {
+        return projectRepository.findById(projectId);
     }
 }

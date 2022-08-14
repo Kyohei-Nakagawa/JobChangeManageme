@@ -6,6 +6,10 @@
   <title>案件詳細 | 案件管理</title>
 </head>
 <body>
-
+<p th:text="${project.status}">(status)</p>
+<a href="../index.html" th:href="@{/}">トップページ</a>
+<a href="./list.html" th:href="@{./}">案件一覧へ戻る</a>
+<h2 th:text="${project.title}">(title)</h2>
+<p th:text="${project.detail}">(status)</p>
 </body>
 </html>
