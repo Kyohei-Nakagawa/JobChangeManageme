@@ -48,13 +48,13 @@ public class ProjectController {
         return "redirect:/projects";
     }
 
-    @PostMapping("/detail")
-    public String editProject(@Validated EditProjectForm form, BindingResult bindingResult, Model model) {
+    @PostMapping("/{projectId}")
+    public String editProject(@PathVariable("projectId") int projectId, @Validated EditProjectForm form, BindingResult bindingResult, Model model) {
         if(bindingResult.hasErrors()) {
-            return showEditForm(form.getId(), form, model);
+            return showEditForm(projectId, form, model);
         }
-        projectService.editProject(form.getId(), form.getStatus(), form.getDetail());
-        return "redirect:/projects";
+        projectService.editProject(projectId, form.getStatusEdit(), form.getDetailEdit());
+        return "redirect:/projects/" + String.valueOf(projectId);
     }
 
     @GetMapping("/addForm")
@@ -67,6 +67,8 @@ public class ProjectController {
     @GetMapping("/editForm/{projectId}")
     public String showEditForm(@PathVariable("projectId") int projectId, @ModelAttribute EditProjectForm form, Model model) {
         model.addAttribute("project", projectService.findById(projectId));
+        model.addAttribute("statusList", statusList);
+        model.addAttribute("agentList", agentList);
         return "projects/editForm";
     }
 

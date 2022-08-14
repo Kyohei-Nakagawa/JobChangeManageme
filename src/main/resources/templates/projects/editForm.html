@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::title}, ~{::body})}">
+<head>
+  <meta charset="UTF-8">
+  <title>案件編集 | 案件管理</title>
+</head>
+<body>
+<h1>案件編集</h1>
+<h2 th:text="${project.title}">(title)</h2>
+<form action="#" th:action="@{/projects/{projectId}(projectId=${project.id})}" th:method="post" th:object="${editProjectForm}">
+  <div>
+    <label for="statusEdit" class="form-label">ステータス</label>
+    <select type="text" id="statusEdit" name="statusEdit" class="form-select"
+            th:classappend="${#fields.hasErrors('statusEdit')} ? is-invalid">
+      <option th:each="sts:${statusList}" th:value="${sts.value}" th:text="${sts.text}" th:selected="${project.status == sts.value}"></option>
+    </select>
+    <p class="invalid-feedback" th:if="${#fields.hasErrors('statusEdit')}" th:errors="*{statusEdit}">(error)</p>
+  </div>
+  <div>
+    <label for="detailEdit" class="form-label">案件詳細</label>
+    <textarea id="detailEdit" row="10" name="detailEdit" th:text="${project.detail}" class="form-control"
+              th:classappend="${#fields.hasErrors('detailEdit')} ? is-invalid">(detail)</textarea>
+    <p class="invalid-feedback" th:if="${#fields.hasErrors('detailEdit')}" th:errors="*{detailEdit}">(error)</p>
+  </div>
+  <div class="mt-3">
+    <button type="submit" class="btn btn-primary">更新</button>
+    <a href="./detail.html" th:href="@{/projects/{projectId}(projectId=${project.id})}" class="btn btn-secondary">キャンセル</a>
+  </div>
+</form>
+</body>
+</html>
