@@ -9,7 +9,8 @@
 <p th:text="${project.status}">(status)</p>
 <a href="../index.html" th:href="@{/}">トップページ</a>
 <a href="./list.html" th:href="@{./}">案件一覧へ戻る</a>
+<a href="./detail.html" th:href="@{/projects/editForm/{projectId}(projectId=${project.id})}">編集</a>
 <h2 th:text="${project.title}">(title)</h2>
-<p th:text="${project.detail}">(status)</p>
+<p th:text="${project.detail}">(detail)</p>
 </body>
 </html>

@@ -17,11 +17,15 @@ public class ProjectService {
         return projectRepository.findAll();
     }
 
-    public ProjectEntity findById(long projectId) {
+    public ProjectEntity findById(int projectId) {
         return projectRepository.findById(projectId);
     }
 
     public void addProject(String status, String agent, String company, String title, String programming, String detail) {
         projectRepository.addProject(status, agent, company, title, programming, detail);
+    }
+
+    public void editProject(int id, String status, String detail) {
+        projectRepository.editProject(id, status, detail);
     }
 }
