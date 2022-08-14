@@ -13,11 +13,7 @@
         <select type="text" id="statusInput" th:field="*{status}" class="form-select"
                 th:classappend="${#fields.hasErrors('status')} ? is-invalid">
             <option selected value="">Open this select menu</option>
-            <option value="screen">書類選考</option>
-            <option value="interview">面談</option>
-            <option value="waiting">結果待ち</option>
-            <option value="pass">内定</option>
-            <option value="failure">不採用</option>
+            <option th:each="sts:${statusList}" th:value="${sts.value}" th:text="${sts.text}"></option>
         </select>
         <p class="invalid-feedback" th:if="${#fields.hasErrors('status')}" th:errors="*{status}">(error)</p>
     </div>
@@ -26,11 +22,7 @@
         <select id="agentInput" th:field="*{agent}" class="form-select"
                 th:classappend="${#fields.hasErrors('agent')} ? is-invalid">
             <option selected value="">Open this select menu</option>
-            <option value="geechs">ギークス</option>
-            <option value="pebank">PEｰBank</option>
-            <option value="techfree">テクフリ</option>
-            <option value="levtech">レバテック</option>
-            <option value="typeagent">タイプ</option>
+            <option th:each="agt:${agentList}" th:value="${agt.value}" th:text="${agt.text}"></option>
         </select>
         <p class="invalid-feedback" th:if="${#fields.hasErrors('agent')}" th:errors="*{agent}">(error)</p>
     </div>
