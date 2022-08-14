@@ -1,4 +1,4 @@
-package com.example.jcm.repository.model;
+package com.example.jcm.repository.entity;
 
 
 import lombok.AllArgsConstructor;
@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 
 @Data
 @AllArgsConstructor
-public class ProjectModel {
+public class ProjectEntity {
 
     private int id;
     private String status;
