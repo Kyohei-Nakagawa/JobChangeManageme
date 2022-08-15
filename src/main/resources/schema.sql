@@ -9,3 +9,13 @@ detail VARCHAR(4096) NOT NULl,
 uptime TIMESTAMP NOT NULl,
 register TIMESTAMP NOT NULl
 );
+
+create table users (
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+mail VARCHAR(256) NOT NULl,
+password VARCHAR(512) NOT NULl,
+agent VARCHAR(256),
+company VARCHAR(256),
+authority VARCHAR(64),
+register TIMESTAMP NOT NULl
+);
