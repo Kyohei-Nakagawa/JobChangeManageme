@@ -6,6 +6,25 @@
     <title>ユーザー一覧 | 案件管理</title>
 </head>
 <body>
-
+<a href="../index.html" th:href="@{/}">トップページ</a>
+<a href="./createForm.html" th:href="@{/users/createForm}">作成</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th>メールアドレス</th>
+        <th>会社名</th>
+        <th>権限</th>
+        <th>登録日</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${userList}">
+        <td th:text="${user.mail}">(mail)</td>
+        <td th:text="${user.company}">(company)</td>
+        <td th:text="${user.authority}">(authority)</td>
+        <td th:text="${user.register}">(register)</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
